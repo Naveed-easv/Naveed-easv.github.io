@@ -17,9 +17,11 @@
     font-weight: bold;
     font-size: 1.5rem;
     height: 100lvh;
+    overflow: clip;
 }
 .main > *{
-    width: 10vw;
+    width: clamp(40px, 15%, 150px);
+    padding: 2vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -49,7 +51,6 @@
     text-align: center;
 }
 .fillText__subtext{
-    padding: 1em;
     margin: auto;
     max-width: 70vw;
     line-height: 1.5;
