@@ -5,7 +5,6 @@
     padding: 0;
 }
 .main{
-    width: 100%;
     display: flex;
     gap: 10vw;
     height: 100vh;
@@ -15,19 +14,9 @@
     font-size: 1.5rem;
     height: 100lvh;
     overflow: clip;
-}
-.main::before{
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
     background-image: url(https://images.unsplash.com/photo-1721297013317-e4976cc284d9?q=80&w=1635&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
     background-size: cover;
     background-position: center;
-    z-index: -1;
-    filter: blur(2px);
 }
 .main > *{
     width: clamp(40px, 15%, 150px);
@@ -35,6 +24,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: clamp(1rem, 0.912rem + 0.3756vw, 1.25rem);;
 }
 .main__vh{
     height: 100vh;
