@@ -7,17 +7,27 @@
 .main{
     width: 100%;
     display: flex;
-    gap: 2em;
+    gap: 10vw;
     height: 100vh;
     justify-content: center;
-    background-image: url(https://images.unsplash.com/photo-1730216827021-bc1dfa3d9c5b?q=80&w=1752&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
-    background-size: cover;
-    background-position: center;
     color: white;
     font-weight: bold;
     font-size: 1.5rem;
     height: 100lvh;
     overflow: clip;
+}
+.main::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url(https://images.unsplash.com/photo-1721297013317-e4976cc284d9?q=80&w=1635&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+    filter: blur(2px);
 }
 .main > *{
     width: clamp(40px, 15%, 150px);
@@ -28,22 +38,22 @@
 }
 .main__vh{
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.7);
 }
 .main__lvh{
     height: 100lvh;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.7);
 }
 .main__svh{
     height: 100svh;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.7);
 }
 .main__dvh{
     height: 100dvh;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.7);
 }
 .fillText{
-    background-color: #121212;
+    background-color: #333;
     color: white;
     padding: 2em;
 }
@@ -53,5 +63,5 @@
 .fillText__subtext{
     margin: auto;
     max-width: 70vw;
-    line-height: 1.5;
+    line-height: 1.7;
 }
