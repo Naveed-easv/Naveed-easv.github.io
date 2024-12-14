@@ -44,6 +44,7 @@
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); 
     padding: 1em;
     min-height: 223px; /* height of the street picture */
+    width: 100%;
 }
 
 /* animation(s) */
@@ -222,8 +223,8 @@
     border-color: #007bff;
 }
 #terms{
-    width: 22px;
-    height: 22px;
+    width: 16px;
+    height: 16px;
 }
 .terms_text{
     padding-inline: 1em;
