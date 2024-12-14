@@ -1,200 +1,252 @@
-/* @link https://utopia.fyi/type/calculator?c=320,16,1.2,1280,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
-:root {
-    --step--2: clamp(0.6944rem, 0.6593rem + 0.1759cqi, 0.8rem);
-    --step--1: clamp(0.8333rem, 0.7778rem + 0.2778cqi, 1rem);
-    --step-0: clamp(1rem, 0.9167rem + 0.4167cqi, 1.25rem);
-    --step-1: clamp(1.2rem, 1.0792rem + 0.6042cqi, 1.5625rem);
-    --step-2: clamp(1.44rem, 1.269rem + 0.8552cqi, 1.9531rem);
-    --step-3: clamp(1.728rem, 1.4902rem + 1.189cqi, 2.4414rem);
-    --step-4: clamp(2.0736rem, 1.7475rem + 1.6303cqi, 3.0518rem);
-    --step-5: clamp(2.4883rem, 2.0462rem + 2.2106cqi, 3.8147rem);
-    --color-1: #0f0f0f;
-    --accent-color: #ff7e5f;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* general styling */
+*, ::after, ::before{
+    margin: 0; /* remove defaults so that they can more easily be defined later */
+    padding: 0;
+    box-sizing: border-box; /* tells the browser to account for border/padding etc. when defining width and height */
 }
-html {
-    scroll-behavior: smooth;
+:root{
+    /* brand colors used in Figma */
+    --clr-federal-blue: #03045E;
+    --clr-ghost-white: #FBFBFF;
 }
-img {
-    max-width: 100%;
+.body{
+    max-width: 393px; /* iPhone 16 width in Figma */
+    margin: auto; /* center content */
+    background: 
+    linear-gradient(
+    #053B72 0%,
+    #3498DB 50%,
+    #51A2DB 63%,
+    #7FC1F2 80%,
+    #6AAEE4 92%,
+    #7BC3FE 100%);
+    width: 100svw;
+    height: 100svh;
+
+    /* Font settings
+    <weight>: Use a value from 100 to 900
+
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: <weight>;
+    font-style: normal; */
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
 }
-body {
-    background-color: lightgray;
+.main{
+    backdrop-filter: blur(16px);
+    background: linear-gradient(320deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.5) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); 
+    padding: 1em;
+    min-height: 223px; /* height of the street picture */
 }
-main{
-    max-width: 1200px;
-    margin: auto;
+
+/* animation(s) */
+@keyframes slide {
+    0% {
+        transform: translateX(-100px);
+      }
+      100% {
+        transform: translateX(393px);
+      }
 }
-h1, h2 {
-    font-weight: 800;
-    font-family: 'Josefin Sans';
-}
-h1{
+
+/* common styling */
+.start__title, 
+.login__title,
+.createAccount__title{
+    font-weight: 500;
+    color: var(--clr-federal-blue);
+    filter: drop-shadow(4px rgba(0, 0, 0, 0.15));
     text-align: center;
-    font-size: var(--step-4);
 }
-h2{
-    font-size: var(--step-2);
-    font-weight: 700;
-}
-p{
-    font-size: var(--step-0);
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-section {
-    margin-top: 40px;
-    padding: 20px;
-}
-#capetown {
-    background-color: lightgreen;
-}
-#london {
-    background-color: yellow;
-}
-#newyork {
-    background-color: violet;
-}
-#paris {
-    background-color: orange;
-}
-#hanoi {
-    background-color: greenyellow;
-}
-footer p {
-    text-align: center;
-    font-size: var(--step--1);
-}
-/* Styling navigation */
-.menu{
-    background: var(--accent-color); 
-    font-size: var(--step-1);
+.button{
+    border-radius: 40px;
+    height: 48px;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    position: fixed;
-	top: 0;
-    left: 0;
-    width: 100%;
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.427);
+    text-decoration: none;
 }
-.menu__links{
+
+/* hero section */
+.hero{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+.hero__logo{
+    padding-block-start: 3em;
+    filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.35));
+}
+.hero__image{
+    z-index: 1;
+}
+.hero__cloud {
+    z-index: -2;
+    position: absolute;
+    /* animation: slide 10000ms linear infinite; */
+}
+.hero__cloud:nth-child(3){
+    top: 15%;
+    left: 15%;
+    scale: 1.1;
+    opacity: 0.45;
+}
+.hero__cloud:nth-child(4) {
+    top: 30%;
+    left: 50%;
+    scale: 0.8;
+    opacity: 0.25;
+    transform: scaleX(-1);
+}
+.hero__cloud:nth-child(5) {
+    top: 50%;
+    left: 55%;
+    scale: 1.05;
+    opacity: 0.45;
+}
+.hero__cloud:nth-child(6) {
+    top: 50%;
+    left: 0;
+    scale: 0.6;
+    opacity: 0.15;
+    transform: scaleX(-1);
+}
+.hero__street{
+    position: absolute;
+    opacity: 0.65;
+    z-index: -2;
+    overflow: auto;
+    top: 100%;
+    border-radius: 40px;
+}
+
+/* start screen */
+.start{
+    height: 289px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: center;
+    color: var(--clr-ghost-white); 
+}
+.start__buttons{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    padding: 0.5em;
+}
+.start__createAccount{ 
+    background-color: hsl(from var(--clr-federal-blue) h s l / 0.9);;
+    color: var(--clr-ghost-white);
+}
+.start__createAccount:hover, .start__createAccount:active{
+    background-color: rgb(from var(--clr-federal-blue) r g calc(b + 50));
+    filter: drop-shadow(0 4px 2px rgba(0, 0, 0, 0.35));
+    transition-duration: 200ms;
+}
+.start__divider{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.divider__line{
+    width: 126px; 
+    border: none; 
+    height: 2px; 
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.divider__text{
+    color: rgba(0, 0, 0, 0.5);
+}
+.start__login{
+    background-color: hsl(from var(--clr-ghost-white) h s l / 0.9);
+    color: #000;
+}
+.start__login:hover, .start__login:active{
+    background-color: var(--clr-ghost-white);
+    filter: drop-shadow(0 4px 2px rgba(0, 0, 0, 0.35));
+    transition-duration: 200ms;
+}
+
+/* create account page */
+.createAccount{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    row-gap: 1.5em;
+}
+.backButton__svg{
+    fill: var(--clr-federal-blue);
+}
+.backButton:hover, .backButton:active{
+    filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.35));
+    scale: 1.1;
+    transition-duration: 200ms;
+}
+.createAccount__title{
+    width: 75%;
+}
+.createAccount__phoneNumber {
     display: flex;
     align-items: center;
+    width: 100%;
 }
-.menu__link{
-    padding: 0.75em 1.25em;
-    align-items: center;
-    text-decoration: none;
-    color: white;
-    font-size: var(--step-1);
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+.phoneNumber__countryCode {
+    border: none;
+    background-color: #CDCDCD;
+    padding: 0.5em 0 0.5em 1em;
+    font-size: 16px;
+    border-radius: 16px 0 0 16px;
 }
-.menu__link:hover{
-    background-color: #feb47b;
+.phone-number {
+    flex: 1;
+    border: none;
+    padding: 0.5em;
+    font-size: 16px;
+    border-radius: 0 16px 16px 0;
 }
-.menu svg{
-    fill: black;
+.phone-number::placeholder {
+    color: #aaa;
 }
-#sidebarActive{
-    display: none; /* hides the checkbox on desktop */
+.createAccount__phoneNumber:focus-within {
+    border-color: #007bff;
 }
-.openSidebar, .closeSidebar{
-    display: none; /* hides the open and close buttons on desktop */
+#terms{
+    width: 22px;
+    height: 22px;
 }
-.intro{
-    border-bottom: 1px solid rgba(128, 128, 128, 0.411);
+.terms_text{
+    padding-inline: 1em;
 }
-/* Styling the city blog */
-.blog{
-    grid-template-columns: 1fr 1fr 1fr;
-    display: grid;
-    gap: 1em;
-    container-type: inline-size;
+.terms__link{
+    text-decoration: underline var(--clr-federal-blue);
+    color: var(--clr-federal-blue);
+    /* padding: 0.2em; */
 }
-.blog__post{
-    padding: 1em;
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.427);
+.createAccount__sendCode{
+    background-color: hsl(from var(--clr-federal-blue) h s l / 0.9);;
+    color: var(--clr-ghost-white);
 }
-.blog__post p{
-    padding: 0 0.5em;
-    margin: 0;
+.createAccount__sendCode:hover, .createAccount__sendCode:active{
+    background-color: rgb(from var(--clr-federal-blue) r g calc(b + 50));
+    filter: drop-shadow(0 4px 2px rgba(0, 0, 0, 0.35));
+    transition-duration: 200ms;
 }
-.cardsParis{
-    grid-column: span 2;
+.createAccount__codeText{
+    color: #000;
+    font-size: 12px;
+    font-weight: 600;
 }
-@media (width < 650px) {
-    /* place the menu icon to the right */
-    .menu{
-        justify-content: flex-end;
-        align-items: center;
-    }
-    .menu__links{
-        flex-direction: column;
-        align-items: flex-start;
-        position: fixed;
-        top: 0;
-        right: -100%; /* hides the menu container so that it can be animated */
-        z-index: 2;
-        background: #333;
-        width: 60vw;
-        box-shadow: -5px 0 5px rgba(0, 0, 0, 0.25);
-        height: 100%;
-        transition: 400ms ease-in-out;
-    }
-    .menu__link{
-        color: white;
-        box-sizing: border-box;
-        height: auto;
-        width: 100%;
-        padding: 1em 2em;
-    }
-    .menu svg{
-        fill: white;
-    }
-    .openSidebar, .closeSidebar{
-        display: block;
-        padding: 0.5em 1.25em;
-    }
-    /* the checkbox is hidden by default, but once it's checked it becomes visible */
-    #sidebarActive:checked ~ .menu__links{
-        right: 0;
-    }
-    /* adds an overlay so the user can press anywhere on the screen besides the nav bar to close it */
-    #sidebarActive:checked ~ #overlay{
-        height: 100%;
-        width: 100%;
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 1;
-    }
-}
-@media (max-width: 1000px) {
-    .blog{
-        grid-template-columns: 1fr 1fr;
-    }
-}
-@media (max-width: 800px) {
-    .blog{
-        grid-template-columns: 1fr;
-    }
-    .cardsParis{
-        grid-column: span 1;
-    }
-}
-/* checks whether the user has their system set to dark mode and switches the theme accordingly */
-@media (prefers-color-scheme: dark) {
-    body {
-        background: #1f1f1f;
-    }
-    h1, .intro p, footer p {
-        color: white
-    }
-}
-@container (width < 45ch) {
-    .blog__post {
-        grid-template-columns: auto minmax(25ch, 1fr);
-    }
-    .blog__post h2{
-        grid-column: 1 / -1;
-    }
+/* login page */
+.login__title{
 }
