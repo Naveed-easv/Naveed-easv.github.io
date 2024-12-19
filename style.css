@@ -200,7 +200,7 @@
     padding: 0.5em 0 0.5em 1em;
     font-size: var(--font-size--1);
     border-radius: 1em 0 0 1em;
-    height: 2em;
+    height: 3em;
 }
 .phoneNumber__input {
     flex: 1;
@@ -208,7 +208,7 @@
     padding: 0.5em;
     font-size: var(--font-size--1);
     border-radius: 0 1em 1em 0;
-    height: 2em;
+    height: 3em;
     max-width: calc(329px - 74px);
 }
 .phoneNumber__input::placeholder {
@@ -251,11 +251,11 @@
 
 /* activation code page */
 .activationCode__input{
-    flex: 1;
     border: none;
     padding: 0.5em;
     font-size: var(--font-size--1);
     border-radius: 0.5em;
+    height: 3em;
     width: 329px;
 }
 .activationCode__input::placeholder{
