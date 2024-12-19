@@ -6,17 +6,6 @@
     padding: 0;
     box-sizing: border-box; /* tells the browser to account for border/padding etc. when defining width and height */
 }
-
-/* @media (min-width: 768px) {
-    .body {
-        max-width: 768px;
-        padding: 1em;
-    }
-    .main {
-        padding: 2em;
-    }
-} */
-
 :root{
     /* brand colors used in Figma */
     --clr-federal-blue: #03045E;
@@ -51,7 +40,7 @@
     #3498DB 50%,
     #51A2DB 63%,
     #7FC1F2 80%,
-    #6AAEE4 90%,
+    #6AAEE4 92%,
     #7BC3FE 100%);
 
     /* Font settings
@@ -66,24 +55,13 @@
     font-style: normal;
 }
 .main{
-    backdrop-filter: blur(16px);
+    backdrop-filter: blur(1em);
     background: linear-gradient(320deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.5) 100%);
     border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 16px;
+    border-radius: 1em;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); 
     padding: 1em;
-    height: auto;
 
-}
-
-/* animation(s) */
-@keyframes slide {
-    0% {
-        transform: translateX(-100px);
-      }
-      100% {
-        transform: translateX(393px);
-      }
 }
 
 /* common styling */
@@ -130,7 +108,6 @@
 .hero__cloud {
     z-index: -2;
     position: absolute;
-    /* animation: slide 10000ms linear infinite; */
 }
 .hero__cloud:nth-child(3){
     top: 15%;
@@ -160,6 +137,9 @@
 }
 
 /* start screen */
+.start__title{
+    padding-inline: 0.5em;
+}
 .start__buttons{
     display: flex;
     flex-direction: column;
@@ -206,7 +186,7 @@
 .backButton__svg{
     fill: var(--clr-federal-blue);
     position: absolute;
-    inset: 13px 0 0 2%;
+    inset: 28px 0 0 1em;
 }
 .createAccount__phoneNumber {
     display: flex;
@@ -219,16 +199,16 @@
     background-color: #CDCDCD;
     padding: 0.5em 0 0.5em 1em;
     font-size: var(--font-size--1);
-    border-radius: 16px 0 0 16px;
-    height: 32px;
+    border-radius: 1em 0 0 1em;
+    height: 2em;
 }
 .phoneNumber__input {
     flex: 1;
     border: none;
     padding: 0.5em;
     font-size: var(--font-size--1);
-    border-radius: 0 16px 16px 0;
-    height: 32px;
+    border-radius: 0 1em 1em 0;
+    height: 2em;
     max-width: calc(329px - 74px);
 }
 .phoneNumber__input::placeholder {
@@ -275,7 +255,7 @@
     border: none;
     padding: 0.5em;
     font-size: var(--font-size--1);
-    border-radius: 8px;
+    border-radius: 0.5em;
     width: 329px;
 }
 .activationCode__input::placeholder{
@@ -302,7 +282,7 @@ align-items: center;
     font-size: 1.5em;
     text-align: center;
     border: 1px solid #ccc;
-    border-radius: 8px;
+    border-radius: 0.5em;
     margin-right: 0.5em;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
@@ -353,4 +333,15 @@ input[type="number"] {
 .guide__text{
     text-align: center;
     padding: 1em;
+}
+@media (min-width: 768px) {
+    .body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .main{
+        width: 70svw;
+    }
 }
